@@ -1,11 +1,18 @@
 'use strict';
 
 /* Directives */
-
-
-angular.module('myApp.directives', []).
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
+(function () {
+	var app = angular.module("tableRows", []);
+  app.directive("headerRow", function() { 
+    return {
+      restrict: "E",
+      templateUrl: "directives/header-row.html"
     };
-  }]);
+  });
+  app.directive("entryRow", function() { 
+    return {
+      restrict: "E",
+      templateUrl: "directives/entry-row.html"
+    };
+  });
+})();
