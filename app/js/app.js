@@ -3,14 +3,7 @@
 
 // Declare app level module which depends on filters, and services
 (function () {
-	var app = angular.module('craigsApp', ['tableRows']);
+	var app = angular.module('craigsApp', ['tableRows', 'angularFireController', 'firebase', 'angularFireService']);
 
-	app.controller('StoreController', ['$http', function($http){
-    var store = this;
-    store.products = [];
-
-    $http.get('js/categories.json').success(function(data){
-      store.products = data;
-    });
-  }]);
+	
 })();

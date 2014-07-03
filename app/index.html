@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body ng-controller="StoreController as store">
+<body ng-controller="StoreController">
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -22,11 +22,26 @@
       <div class="col-md-2 thumbnail">
         <h3 class="centered-text">HRC</h3>
       </div>
-      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-repeat="product in store.products | limitTo:5">
-        <ul class="list-group" ng-repeat="listitem in product.dates">
-          <li class="list-group-item">{{listitem}}</li>
+      <!--  
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-repeat="product in store.products | orderByPriority | filter: { name: 'hrc-sba' }">
+      -->
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcsba'}">{{category.date}}</li>
         </ul>
       </a>
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcres'}">{{category.date}}</li>
+        </ul>
+      </a>
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcst'}">{{category.date}}</li>
+        </ul>
+      </a>
+ 
+      <!--
       <div class="col-md-2 thumbnail">
         <h3 class="centered-text">THT</h3>
       </div>
@@ -59,22 +74,27 @@
           <li class="list-group-item">{{listitem}}</li>
         </ul>
       </a>
-    </div> <!-- /.row -->
+    </div>
+    -->
   </div> <!-- /.container -->
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
-  <script src="bower_components/angular/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>  
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+ 
+  <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/directives.js"></script>  
-  <!-- Not in use
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
+  <!-- Not in use
   <script src="js/filters.js"></script>
 -->
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/holderjs/holder.js"></script>
+	
 </body>
 </html>
