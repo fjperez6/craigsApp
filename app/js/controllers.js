@@ -7,29 +7,12 @@
   
   app.controller('StoreController', ['$scope', 'StoreServices', function($scope, service){
     
-    //service.setLisToScope();
-    /*
-    $scope.newItem = {};
-
-    $scope.addNewItem = function() {
-      itemService.addItem($scope.newItem);
-      $scope.newItem = {};
-    };
-    $scope.deleteItem = function(id){
-      itemService.deleteItem(id);
-    };
-  }
-    $scope.removeAll = function() {
-      itemService.removeAll();
-    };
-    */
+    //Need to seperate the updatelist function from cntrl to srvc
     service.$bind($scope, "products");
-    /*
     $scope.updateList = function(item) {
       var now = new Date();
-      $scope.products.hrcsba.dates.pop();   
-      $scope.products.hrcsba.dates.unshift(now);   
+      //alert(item + now);
+      $scope.products.$add({category: item, date: now});   
     };
-    */
   }]);
 })();

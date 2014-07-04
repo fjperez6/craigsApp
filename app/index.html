@@ -25,19 +25,19 @@
       <!--  
       <a href="#" class="col-md-2 thumbnail panel panel-default" ng-repeat="product in store.products | orderByPriority | filter: { name: 'hrc-sba' }">
       -->
-      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList('hrcsba')">
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcsba'}">{{category.date}}</li>
+          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcsba'} | limitTo: -3 | orderBy: reverse">{{category.date}}</li>
         </ul>
       </a>
-      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList('hrcres')">
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcres'}">{{category.date}}</li>
         </ul>
       </a>
-      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList(category)">
+      <a href="#" class="col-md-2 thumbnail panel panel-default" ng-click="updateList('hrcst')">
         <ul class="list-group">
-          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcst'}">{{category.date}}</li>
+          <li class="list-group-item" ng-repeat="category in products | orderByPriority | filter: {category: 'hrcst'} | limitTo: 3">{{category.date}}</li>
         </ul>
       </a>
  
