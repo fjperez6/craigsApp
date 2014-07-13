@@ -9,7 +9,7 @@
 	var app = angular.module('angularFireService', ["firebase"]);
   
   app.factory('StoreServices', ['$firebase', function($firebase){
-    var _url = 'https://berlin-label-01.firebaseio.com/categories';
+    var _url = 'https://***YOUR Firebase Data store';
     var _ref = new Firebase(_url);
     return $firebase(_ref);
 /*
